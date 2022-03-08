@@ -8,13 +8,13 @@
 
 </p>
 
-<img src="./readme_assets/main.png" width="100%">
+<img src="./readme_assets/news_img.jpg" width="100%">
 ## Description
 
 **NOW WITH DRAG AND DROP**
 
 <p align="center">
-<img src="https://media.giphy.com/media/7OWdOQupgCClrZb19P/giphy.gif" width="80%"></p>
+<img src="./readme_assets/main.gif" width="80%"></p>
 
 News portal implemented by scratch on vue.js. It has responsive design for Desktop, iPad Mini and iPhones. I made search and sort methods for news page with little animations for icons. 
 

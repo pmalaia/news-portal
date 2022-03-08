@@ -1,24 +1,36 @@
-# news
+<h1 align="center">News Portal</h1>
+
+<p align="center">
+  
+<img src="https://img.shields.io/badge/made%20by-pmalaia-blue.svg" >
+
+<img src="https://img.shields.io/badge/vue-2.6.11-green.svg">
+
+</p>
+
+<img src="./readme_assets/main.png" width="100%">
+## Description
+
+**NOW WITH DRAG AND DROP**
+
+<p align="center">
+<img src="https://media.giphy.com/media/7OWdOQupgCClrZb19P/giphy.gif" width="80%"></p>
+
+News portal implemented by scratch on vue.js. It has responsive design for Desktop, iPad Mini and iPhones. I made search and sort methods for news page with little animations for icons. 
+
+### CSS
+
+- Every element is 100% css except the SVG of sort icon.
+
 
 ## Project setup
+
 ```
-yarn install
+npm install
+npm run serve
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Future scope
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- Add animation.
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

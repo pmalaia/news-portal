@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <label :data-state="state" for="search">
-      <input
-        type="text"
-        placeholder="Search"
-        :value="value"
-        @click="state = 'open'"
-        @blur="state = 'close'"
-        @input="$emit('input', $event.target.value)"
-      />
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </label>
-  </div>
+  <label class="search" :data-state="state" for="search">
+    <input
+      type="text"
+      placeholder="Search"
+      :value="value"
+      @click="state = 'open'"
+      @blur="state = 'close'"
+      @input="$emit('input', $event.target.value)"
+    />
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </label>
 </template>
 
 <script>
@@ -33,14 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f0ad4e;
-}
-label {
+.search {
   position: relative;
   display: inline-block;
   padding: 5px 12px;

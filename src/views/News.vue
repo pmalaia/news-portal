@@ -13,22 +13,29 @@
       </div>
     </div>
 
-    <div class="news__block">
-      <NewsItem
-        class="news__block-element"
-        v-for="(item, index) in filtered"
-        :key="index"
-        :index="index"
-        :data="item"
-      />
+    <div>
+      <transition-group
+        class="news__block"
+        appear
+        @before-enter="beforeEnter"
+        @enter="enter"
+      >
+        <NewsItem
+          class="news__block-element"
+          v-for="(item, index) in filtered"
+          :key="item.id"
+          :data="item"
+          :data-index="index"
+        />
+      </transition-group>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-
 import NewsItem from "@/components/news/NewsItem";
+import gsap from "gsap";
 
 export default {
   name: "News",
@@ -39,6 +46,7 @@ export default {
     return {
       arr: [
         {
+          id: 1,
           title: "0News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2021"),
           from: "CNN Indonesia",
@@ -46,6 +54,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 2,
           title: "1News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2020"),
           from: "CNN Indonesia",
@@ -53,6 +62,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 3,
           title: "2News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2019"),
           from: "CNN Indonesia",
@@ -60,6 +70,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 4,
           title: "3News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2018"),
           from: "CNN Indonesia",
@@ -67,6 +78,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 5,
           title: "4News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2017"),
           from: "CNN Indonesia",
@@ -74,6 +86,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 6,
           title: "5News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2016"),
           from: "CNN Indonesia",
@@ -81,6 +94,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 7,
           title: "6News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2015"),
           from: "CNN Indonesia",
@@ -88,6 +102,7 @@ export default {
           text: "Nisi, sagittis aliquet sit rutrum. Nunc, id vestibulum quam ornare adipiscing. Pellentesque sed turpis nunc gravida pharetra, sit nec vivamus pharetra. Velit, dui, egestas nisi, elementum mattis mauris, magnis. Massa tortor nibh nulla condimentum imperdiet scelerisque... read more",
         },
         {
+          id: 8,
           title: "7News Title Lorem Ipsum Dolor Sit Amet",
           date: new Date("03.12.2014"),
           from: "CNN Indonesia",
@@ -116,6 +131,18 @@ export default {
       return this.filtered.sort((a, b) =>
         this.asc ? a.date - b.date : b.date - a.date
       );
+    },
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(60px)";
+    },
+    enter(el) {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: el.dataset.index * 0.3,
+      });
     },
   },
 };

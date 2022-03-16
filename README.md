@@ -17,10 +17,10 @@ News portal implemented by scratch on vue.js. It has responsive design for Deskt
 
 
 
-### CSS
+### CSS and libraries
 
 - Every element is 100% css except the SVG of sort icon.
-
+- Test animation with gsap on news list.
 
 ## Project setup
 
@@ -28,8 +28,4 @@ News portal implemented by scratch on vue.js. It has responsive design for Deskt
 npm install
 npm run serve
 ```
-
-## Future scope
-
-- Add animation.
 

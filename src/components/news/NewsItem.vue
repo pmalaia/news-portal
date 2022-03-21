@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img class="item__img" :src="data.img" alt="" />
+    <img class="item__img" :src="data.img" :alt="data.title" />
     <p class="item__title">{{ data.title }}</p>
     <span class="item__info">{{ data.date.toDateString() }}</span>
     <span class="item__info">{{ data.from }}</span>
